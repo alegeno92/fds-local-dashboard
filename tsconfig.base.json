@@ -16,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fds/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@fds/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@fds/data": ["libs/data/src/index.ts"],
+      "@fds/data-access/sensor": ["libs/data-access/sensor/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

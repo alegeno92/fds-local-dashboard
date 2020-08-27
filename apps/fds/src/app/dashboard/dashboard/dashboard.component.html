@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-1 mb-1">
+  <h1 class="h2">Dashboard</h1>
+</div>
+<fds-card [loading]="loading">
+  <fds-table
+    [displayedColumns]="displayedColumns"
+    [data]="sensorData$|async">
+  </fds-table>
+</fds-card>

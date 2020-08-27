@@ -202,6 +202,38 @@
           }
         }
       }
+    },
+    "data-access-sensor": {
+      "projectType": "library",
+      "root": "libs/data-access/sensor",
+      "sourceRoot": "libs/data-access/sensor/src",
+      "prefix": "fds",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data-access/sensor/tsconfig.lib.json",
+              "libs/data-access/sensor/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/data-access/sensor/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data-access/sensor/jest.config.js",
+            "tsConfig": "libs/data-access/sensor/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/data-access/sensor/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

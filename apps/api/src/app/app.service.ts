@@ -1,9 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { Message } from '@fds/api-interfaces';
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getData(): Message {
-    return { message: 'Welcome to api!' };
+  constructor() {
   }
 }

@@ -9,6 +9,7 @@ import { RouteItem } from '../../routes';
 export class SidebarComponent implements OnInit {
 
   @Input() routes: RouteItem[] = [];
+  @Input() collapse = true;
 
   constructor() { }
 

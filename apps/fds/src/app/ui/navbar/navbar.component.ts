@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'fds-navbar',
@@ -7,11 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  @Output() collapse: EventEmitter<boolean> = new EventEmitter<boolean>()
   @Input() appName = "Company";
+
+  _collapse = true;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCollapse() {
+    this._collapse = !this._collapse;
+    this.collapse.emit(this._collapse);
   }
 
 }

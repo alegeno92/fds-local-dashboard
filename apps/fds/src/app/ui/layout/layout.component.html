@@ -1,7 +1,8 @@
-<fds-navbar appName="{{appName}}"></fds-navbar>
+<fds-navbar appName="{{appName}}" (collapse)="onCollapseClick($event)"></fds-navbar>
 <div class="container-fluid">
   <div class="row">
     <fds-sidebar
+      [collapse]="collapse"
       [routes]="routes"
     ></fds-sidebar>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">

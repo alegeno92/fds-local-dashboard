@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EntityActionOptions, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory } from '@ngrx/data';
 import { Observable } from 'rxjs';
-import { Sensor } from '../interfaces/sensor.interface';
+import { Sensor } from '../interfaces';
 
 @Injectable()
 export class SensorCollectionService extends EntityCollectionServiceBase<Sensor>{

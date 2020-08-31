@@ -7,11 +7,12 @@ import { RouterModule } from '@angular/router';
 
 import { DataAccessSensorModule } from '@fds/data-access/sensor';
 import { UiModule } from '../ui/ui.module';
-
+import { ModalExportComponent } from './modal-export/modal-export.component';
+import { FormModule } from '@fds/form';
 
 
 @NgModule({
-  declarations: [PageListComponent],
+  declarations: [PageListComponent, ModalExportComponent],
   imports: [
     CommonModule,
     DataAccessSensorModule,
@@ -27,7 +28,9 @@ import { UiModule } from '../ui/ui.module';
         component: PageListComponent
       }
     ]),
-    UiModule
-  ]
+    UiModule,
+    FormModule
+  ],
+  entryComponents:[ModalExportComponent]
 })
 export class SensorsModule { }

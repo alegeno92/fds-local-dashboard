@@ -29,13 +29,19 @@
       "tags": [],
       "implicitDependencies": ["fds"]
     },
-    "api": {
-      "tags": []
-    },
-    "api-interfaces": {
-      "tags": []
-    },
     "data-access-sensor": {
+      "tags": []
+    },
+    "core": {
+      "tags": []
+    },
+    "data-access-actuator": {
+      "tags": []
+    },
+    "data-access-sensor-value": {
+      "tags": []
+    },
+    "form": {
       "tags": []
     }
   }

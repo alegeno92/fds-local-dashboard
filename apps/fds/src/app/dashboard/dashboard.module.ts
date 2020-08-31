@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DataModule } from '../data/data.module';
 import { UiModule } from '../ui/ui.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { DataAccessSensorValueModule } from '@fds/data-access/sensor-value';
 
 @NgModule({
   declarations: [
     DashboardComponent
   ],
   imports: [
-    DataModule,
+    CommonModule,
     UiModule,
     RouterModule.forChild([{
       path: '',
       component: DashboardComponent
     }]),
-    CommonModule
+    DataAccessSensorValueModule
   ]
 })
 export class DashboardModule {

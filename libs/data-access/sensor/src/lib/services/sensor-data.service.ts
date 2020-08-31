@@ -9,22 +9,19 @@ import { Sensor } from '../interfaces';
 @Injectable()
 export class SensorDataService extends DefaultDataService<Sensor> {
 
-
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator, logger: Logger, defaultDataServiceConfig: DefaultDataServiceConfig) {
     super('Sensor', http, httpUrlGenerator, defaultDataServiceConfig);
     logger.log('Created custom Sensor Entity Data Service');
   }
 
   getAll(): Observable<Sensor[]> {
-    return super.getAll().pipe(
-      map(response => response['value'])
-    );
+    return super.getAll();
   }
 
   getById(id): Observable<Sensor> {
     return super.getAll().pipe(
       map(response => {
-        return response['value'].find(m => m.id === id);
+        return response.find(s => s['id'] === id);
       })
     );
   }
@@ -40,4 +37,5 @@ export class SensorDataService extends DefaultDataService<Sensor> {
       map(response => response['value'])
     );
   }
+
 }

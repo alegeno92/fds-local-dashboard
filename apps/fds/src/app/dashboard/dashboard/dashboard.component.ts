@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataService } from '../../data/data.service';
-import { SensorValue } from '@fds/api-interfaces';
+import { select, Store } from '@ngrx/store';
+import {
+  getSensorValuesEntities,
+  getSensorValuesLoaded,
+  SensorValuesPartialState,
+  SensorValuesService
+} from '@fds/data-access/sensor-value';
+import { untilViewDestroyed } from '../../ui/until-view-destroyed';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'fds-dashboard',
@@ -9,19 +16,30 @@ import { SensorValue } from '@fds/api-interfaces';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns = ['#', 'Key', 'Sensor', 'Value', 'Date'];
+  displayedColumns = ['device', 'sensor', 'value', 'date'];
 
-  sensorData$: Observable<SensorValue[]>;
-  loading = true;
+  sensorData$: Observable<any>;
+  loaded$: Observable<boolean>;
 
-  constructor(private sensorDataService: DataService) {
-   this.sensorData$ = this.sensorDataService.sensorData$;
+  constructor(
+    private store: Store<SensorValuesPartialState>,
+    private elRef: ElementRef,
+    private sensorValueService: SensorValuesService
+  ) {
+    this.sensorValueService.init();
   }
 
   ngOnInit() {
-    this.sensorData$.subscribe(value => {
-      this.loading = value.length === 0;
-    });
+    this.sensorData$ = this.store.pipe(
+      untilViewDestroyed(this.elRef),
+      select(getSensorValuesEntities),
+      map(sensors => Object.values(sensors))
+    );
+
+    this.loaded$ = this.store.pipe(
+      untilViewDestroyed(this.elRef),
+      select(getSensorValuesLoaded)
+    )
   }
 
 }

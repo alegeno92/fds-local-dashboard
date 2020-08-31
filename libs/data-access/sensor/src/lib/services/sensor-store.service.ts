@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { EntityActionFactory, EntityCollectionService, EntityCollectionServiceFactory } from '@ngrx/data';
 import { Observable } from 'rxjs';
-import { StoreInterface } from '../../../../store.interface';
 import { Sensor } from '../interfaces';
+import { StoreInterface } from '@fds/core';
 
 @Injectable()
 export class SensorStoreService implements StoreInterface<Sensor>{

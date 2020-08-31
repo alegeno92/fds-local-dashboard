@@ -43,6 +43,7 @@
     "@nestjs/microservices": "^7.4.2",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/platform-socket.io": "^7.4.2",
+    "@nestjs/typeorm": "^7.1.1",
     "@nestjs/websockets": "^7.4.2",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "@ngrx/data": "^10.0.0",
@@ -53,12 +54,15 @@
     "@ngrx/store-devtools": "^10.0.0",
     "@nrwl/angular": "10.1.0",
     "bootstrap": "^4.5.0",
+    "open-iconic": "^1.1.1",
     "moment": "^2.27.0",
     "mqtt": "^4.2.1",
+    "mysql": "^2.18.1",
     "ngx-socket-io": "^3.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
+    "typeorm": "^0.2.25",
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
@@ -88,6 +92,7 @@
     "ts-jest": "26.1.4",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~3.9.3"
+    "typescript": "~3.9.3",
+    "@ngrx/schematics": "9.1.0"
   }
 }

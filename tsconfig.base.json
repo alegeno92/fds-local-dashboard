@@ -18,7 +18,13 @@
     "paths": {
       "@fds/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@fds/data": ["libs/data/src/index.ts"],
-      "@fds/data-access/sensor": ["libs/data-access/sensor/src/index.ts"]
+      "@fds/data-access/sensor": ["libs/data-access/sensor/src/index.ts"],
+      "@fds/core": ["libs/core/src/index.ts"],
+      "@fds/data-access/actuator": ["libs/data-access/actuator/src/index.ts"],
+      "@fds/data-access/sensor-value": [
+        "libs/data-access/sensor-value/src/index.ts"
+      ],
+      "@fds/form": ["libs/form/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

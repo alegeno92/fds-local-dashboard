@@ -5,9 +5,14 @@ import { SensorDataService } from './services/sensor-data.service';
 import { SensorCollectionService } from './services/sensor-collection.service';
 import { EntityDataService, EntityDefinitionService, PLURAL_NAMES_TOKEN } from '@ngrx/data';
 import { entityMetadata, pluralNames } from './data.configuration';
+import { HttpClientModule } from '@angular/common/http';
+import { SensorActionService } from './services/sensor-action.service';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    HttpClientModule
+  ],
   providers: [
     SensorStoreService,
     SensorDataService,
@@ -16,7 +21,8 @@ import { entityMetadata, pluralNames } from './data.configuration';
       provide: PLURAL_NAMES_TOKEN,
       useValue: pluralNames,
       multi: true
-    }
+    },
+    SensorActionService
   ]
 })
 export class DataAccessSensorModule {

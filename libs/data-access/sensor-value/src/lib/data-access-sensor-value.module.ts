@@ -15,9 +15,7 @@ import { SensorValuesService } from './sensor-values.service';
       fromSensorValues.reducer
     ),
     EffectsModule.forFeature([SensorValuesEffects]),
-    SocketIoModule.forRoot({
-      url: 'http://localhost:6006'
-    }),
+    SocketIoModule
   ],
   providers:[
     SensorValuesService

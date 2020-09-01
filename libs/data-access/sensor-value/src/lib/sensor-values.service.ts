@@ -8,12 +8,12 @@ import { map } from 'rxjs/operators';
 import { SensorValuesEntity } from './+state/sensor-values.models';
 
 @Injectable()
-export class SensorValuesService{
+export class SensorValuesService extends Socket{
 
-  sensorData$ = this.socket.fromEvent<SensorValue>('sensors')
+  sensorData$ = this.fromEvent<SensorValue>('sensors')
 
-  constructor(private socket: Socket, private store: Store<SensorValuesPartialState>) {
-    this.socket.connect()
+  constructor(private store: Store<SensorValuesPartialState>) {
+    super({url:':6006'});
   }
 
   init() {

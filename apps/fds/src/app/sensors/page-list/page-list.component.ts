@@ -36,6 +36,6 @@ export class PageListComponent implements OnInit {
 
   open() {
     const modalRef = this.modalService.open(ModalExportComponent);
-    modalRef.result.then(value => this.sensorActionService.export(value));
+    modalRef.result.then(value => this.sensorActionService.export(value), reason => console.log(reason));
   }
 }

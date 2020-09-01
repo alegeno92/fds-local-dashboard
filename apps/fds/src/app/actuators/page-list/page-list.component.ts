@@ -43,6 +43,6 @@ export class PageListComponent implements OnInit {
         EntityOp.SAVE_UPDATE_ONE,
         { id: actuator.id, changes: { ...actuator, ...value } })
       );
-    });
+    }, reason => console.log(reason));
   }
 }

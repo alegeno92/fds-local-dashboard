@@ -43,6 +43,9 @@
     },
     "form": {
       "tags": []
+    },
+    "data-access-configuration": {
+      "tags": []
     }
   }
 }

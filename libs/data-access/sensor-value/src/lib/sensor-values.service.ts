@@ -4,7 +4,7 @@ import { SensorValuesPartialState } from './+state/sensor-values.reducer';
 import { Store } from '@ngrx/store';
 import { addSensorValueEntity } from './+state/sensor-values.actions';
 import { SensorValue } from './sensor-value';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { SensorValuesEntity } from './+state/sensor-values.models';
 
 @Injectable()
@@ -20,12 +20,13 @@ export class SensorValuesService extends Socket{
 
     this.sensorData$
       .pipe(
+        tap(x => console.log(x)),
         map((value) => <SensorValuesEntity>{
-          id: `${value.device}_${value.sensor}`,
+          id: `${value.module}_${value.sensor}`,
           sensor: value.sensor,
-          device: value.device,
+          module: value.module,
           date: new Date(value.timestamp * 1000),
-          value_type: value.value_type,
+          type: value.type,
           value: value.value
         })
       )

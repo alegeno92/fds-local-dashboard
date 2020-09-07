@@ -7,6 +7,7 @@ import { Actuator, ActuatorCollectionService } from '@fds/data-access/actuator';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalEditComponent } from '../modal-edit/modal-edit.component';
 import { Update } from '@ngrx/entity';
+import { ModelCreateComponent } from '../model-create/model-create.component';
 
 @Component({
   selector: 'fds-page-list',
@@ -17,7 +18,7 @@ export class PageListComponent implements OnInit {
 
   actuators$: Observable<Actuator[]>;
   loading$: Observable<boolean>;
-  displayedColumns = ['id', 'device', 'name', 'type', 'value'];
+  displayedColumns = ['id', 'module', 'actuator', 'type', 'value', 'actuated', 'emitValue'];
 
   constructor(private store: Store<any>,
               private eaf: EntityActionFactory,
@@ -45,4 +46,14 @@ export class PageListComponent implements OnInit {
       );
     }, reason => console.log(reason));
   }
+
+
+  open() {
+    const modalRef = this.modalService.open(ModelCreateComponent);
+    modalRef.result.then(value => {
+      this.store.dispatch(this.entityActionFactory.create<Update<Actuator>>(
+        'Actuator',
+        EntityOp.SAVE_ADD_ONE, value)
+      );
+    }, reason => console.log(reason));  }
 }

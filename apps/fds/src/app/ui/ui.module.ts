@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { TableComponent } from './table/table.component';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from './card/card.component';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CardComponent } from './card/card.component';
     NavbarComponent,
     SidebarComponent,
     TableComponent,
-    CardComponent
+    CardComponent,
+    SafeHtmlPipe
   ],
   imports: [
     CommonModule,

@@ -16,7 +16,7 @@ export class PageListComponent implements OnInit {
 
   sensors$: Observable<Sensor[]>;
   loading$: Observable<boolean>;
-  displayedColumns = ['id', 'device', 'name', 'type'];
+  displayedColumns = ['id', 'module', 'sensor', 'type'];
 
   constructor(private store: Store<any>,
               private eaf: EntityActionFactory,

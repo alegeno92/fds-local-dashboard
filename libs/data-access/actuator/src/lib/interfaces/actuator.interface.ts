@@ -4,4 +4,5 @@ export class Actuator{
   public name: string;
   public type: string;
   public value: string;
+  public emitValue: string;
 }

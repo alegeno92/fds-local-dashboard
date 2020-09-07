@@ -7,7 +7,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let value of data; index as i">
-    <td *ngFor="let el of value">{{format(el)}}</td>
+    <td *ngFor="let el of value" [innerHTML]="format(el)|safeHtml"></td>
     <td *ngIf="showCommands">
       <button type="button" class="btn btn-sm" (click)="onEditClick(i)">
         <span class="oi oi-pencil"></span>

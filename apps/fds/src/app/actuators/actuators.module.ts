@@ -9,10 +9,11 @@ import { UiModule } from '../ui/ui.module';
 import { DataAccessActuatorModule } from '@fds/data-access/actuator';
 import { ModalEditComponent } from './modal-edit/modal-edit.component';
 import { FormModule } from '@fds/form';
+import { ModelCreateComponent } from './model-create/model-create.component';
 
 
 @NgModule({
-  declarations: [PageListComponent, ModalEditComponent],
+  declarations: [PageListComponent, ModalEditComponent, ModelCreateComponent],
   imports: [
     CommonModule,
     DataAccessActuatorModule,

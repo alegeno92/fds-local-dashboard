@@ -1,5 +1,5 @@
 
-export declare type  DataType = 'text' | 'textarea' | 'enum' | 'number' | 'dateTime' | 'dropdown' | 'bool' | 'image';
+export declare type  DataType = 'text' | 'textarea' | 'enum' | 'number' | 'dateTime' | 'dropdown' | 'dropdown-static' | 'bool' | 'image';
 export declare type  ValidatorType = 'required' | 'email' | 'password';
 
 export interface FormConfiguration {
@@ -16,6 +16,7 @@ export interface FormConfiguration {
       validators?: { validator: ValidatorType, [key: string]: string }[],
       dataType?: DataType,
       default?: any,
+      values?: any,
       store?: any,
       key?: string;
       text?: string;

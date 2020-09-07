@@ -284,6 +284,41 @@
           "style": "scss"
         }
       }
+    },
+    "data-access-configuration": {
+      "projectType": "library",
+      "root": "libs/data-access/configuration",
+      "sourceRoot": "libs/data-access/configuration/src",
+      "prefix": "fds",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data-access/configuration/tsconfig.lib.json",
+              "libs/data-access/configuration/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/data-access/configuration/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data-access/configuration/jest.config.js",
+            "tsConfig": "libs/data-access/configuration/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/data-access/configuration/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

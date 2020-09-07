@@ -3,9 +3,9 @@
  */
 export interface SensorValuesEntity {
   id: string | number; // Primary ID
-  device: string;
+  module: string;
   sensor: string;
-  value_type: any;
+  type: string;
   value: any;
   date: Date;
 }

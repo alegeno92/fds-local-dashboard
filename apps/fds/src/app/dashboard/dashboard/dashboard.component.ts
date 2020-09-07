@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns = ['device', 'sensor', 'value', 'date'];
+  displayedColumns = ['module', 'sensor', 'value', 'date'];
 
   sensorData$: Observable<any>;
   loaded$: Observable<boolean>;

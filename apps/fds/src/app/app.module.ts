@@ -24,6 +24,10 @@ const defaultDataServiceConfig = {
     Actuator: {
       collectionResourceUrl: `/api/actuators`,
       entityResourceUrl: `/api/actuators/`
+    },
+    Configuration: {
+      collectionResourceUrl: `/api/configurations`,
+      entityResourceUrl: `/api/configurations/`
     }
   }
 };
@@ -59,6 +63,10 @@ const defaultDataServiceConfig = {
         {
           path: 'actuators',
           loadChildren: () => import('./actuators/actuators.module').then(m => m.ActuatorsModule)
+        },
+        {
+          path: 'configurations',
+          loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule)
         },
         {
           path:'**',

@@ -20,5 +20,10 @@ export const routes: RouteItem[] = [
     path: 'actuators',
     title: 'Actuators',
     showOnMenu: true
+  },
+  {
+    path: 'configurations',
+    title: 'Configurations',
+    showOnMenu: true
   }
 ];

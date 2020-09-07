@@ -24,7 +24,10 @@
       "@fds/data-access/sensor-value": [
         "libs/data-access/sensor-value/src/index.ts"
       ],
-      "@fds/form": ["libs/form/src/index.ts"]
+      "@fds/form": ["libs/form/src/index.ts"],
+      "@fds/data-access/configuration": [
+        "libs/data-access/configuration/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -17,6 +17,7 @@ export class TableComponent implements OnInit {
     this._elements = v;
     this._data = v.map(value => this.displayedColumns.map(key => value[key]));
   };
+
   get data() {
     return this._data;
   }
@@ -36,10 +37,17 @@ export class TableComponent implements OnInit {
     if (value instanceof Date) {
       return moment(value).format(this.dateTimeFormat);
     }
+    if (typeof value === 'boolean') {
+      if (value) {
+        return `<input type="checkbox" disabled checked/>`;
+      }
+      return `<input type="checkbox" disabled/>`;
+    }
+
     return value;
   }
 
-  onEditClick(id){
+  onEditClick(id) {
     this.editClick.emit(this._elements[id]);
   }
 

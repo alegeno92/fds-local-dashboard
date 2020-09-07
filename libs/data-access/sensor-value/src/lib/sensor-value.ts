@@ -1,7 +1,7 @@
 export class SensorValue{
-  public device : string;
+  public module : string;
   public sensor: string;
   public value: any;
-  public value_type: string;
+  public type: string;
   public timestamp: number;
 }

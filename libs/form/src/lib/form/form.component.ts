@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { createFormField } from '../utils/form.utils';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { FormConfiguration } from '../interfaces/form-configuration.interface';
+import { FormConfiguration } from '@fds/form';
 
 @Component({
   selector: 'fds-form',

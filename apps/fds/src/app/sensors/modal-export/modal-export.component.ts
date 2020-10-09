@@ -17,7 +17,6 @@ export class ModalExportComponent implements OnInit {
   }
 
   onExport(values) {
-    console.log(values)
     this.activeModal.close(values);
   }
 }

@@ -12,6 +12,7 @@ import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { NxModule } from '@nrwl/angular';
+import { MqttModule } from 'ngx-mqtt';
 
 
 const defaultDataServiceConfig = {
@@ -42,6 +43,10 @@ const defaultDataServiceConfig = {
     StoreModule.forRoot({
       router: routerReducer
     }),
+    MqttModule.forRoot({
+      port: 9001,
+      hostname: "",
+    }),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
@@ -67,6 +72,10 @@ const defaultDataServiceConfig = {
         {
           path: 'configurations',
           loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule)
+        },
+        {
+          path: 'exports',
+          loadChildren: () => import('./exports/exports.module').then(m => m.ExportsModule)
         },
         {
           path:'**',

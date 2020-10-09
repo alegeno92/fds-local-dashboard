@@ -4,7 +4,6 @@ export const entityMetadata: EntityMetadataMap = {
   Actuator: {
     entityName: 'Actuator',
     selectId: actuator => {
-      console.log(actuator)
       return actuator.id
     }
   }

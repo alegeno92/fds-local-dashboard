@@ -20,7 +20,6 @@ export class ModalEditComponent implements OnInit {
   }
 
   onSaveClick(values) {
-    console.log(values);
     this.activeModal.close(values);
   }
 }

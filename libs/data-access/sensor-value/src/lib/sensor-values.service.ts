@@ -1,26 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
 import { SensorValuesPartialState } from './+state/sensor-values.reducer';
 import { Store } from '@ngrx/store';
 import { addSensorValueEntity } from './+state/sensor-values.actions';
-import { SensorValue } from './sensor-value';
 import { map, tap } from 'rxjs/operators';
 import { SensorValuesEntity } from './+state/sensor-values.models';
+import { MqttService } from 'ngx-mqtt';
+import { Observable } from 'rxjs';
+
 
 @Injectable()
-export class SensorValuesService extends Socket{
+export class SensorValuesService {
 
-  sensorData$ = this.fromEvent<SensorValue>('sensors')
+  sensorData$: Observable<any>;
 
-  constructor(private store: Store<SensorValuesPartialState>) {
-    super({url:':6006'});
+  constructor(
+    private mqttService: MqttService,
+    private store: Store<SensorValuesPartialState>) {
+    this.sensorData$ = this.mqttService.observe('/sensors/#')
+      .pipe(
+        map((value) => JSON.parse(value.payload.toString())),
+      );
   }
 
   init() {
 
     this.sensorData$
       .pipe(
-        tap(x => console.log(x)),
         map((value) => <SensorValuesEntity>{
           id: `${value.module}_${value.sensor}`,
           sensor: value.sensor,
@@ -30,6 +35,6 @@ export class SensorValuesService extends Socket{
           value: value.value
         })
       )
-      .subscribe(v => this.store.dispatch(addSensorValueEntity({sensorValueEntity: v})));
+      .subscribe(v => this.store.dispatch(addSensorValueEntity({ sensorValueEntity: v })));
   }
 }

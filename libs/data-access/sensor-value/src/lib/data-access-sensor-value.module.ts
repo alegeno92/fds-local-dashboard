@@ -4,8 +4,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromSensorValues from './+state/sensor-values.reducer';
 import { SensorValuesEffects } from './+state/sensor-values.effects';
-import { SocketIoModule } from 'ngx-socket-io';
 import { SensorValuesService } from './sensor-values.service';
+import { MqttModule } from 'ngx-mqtt';
 
 @NgModule({
   imports: [
@@ -15,7 +15,6 @@ import { SensorValuesService } from './sensor-values.service';
       fromSensorValues.reducer
     ),
     EffectsModule.forFeature([SensorValuesEffects]),
-    SocketIoModule
   ],
   providers:[
     SensorValuesService

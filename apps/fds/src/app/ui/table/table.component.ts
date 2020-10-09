@@ -14,6 +14,7 @@ export class TableComponent implements OnInit {
 
   @Input('data')
   set data(v) {
+    if (!v) return;
     this._elements = v;
     this._data = v.map(value => this.displayedColumns.map(key => value[key]));
   };
@@ -23,9 +24,16 @@ export class TableComponent implements OnInit {
   }
 
   @Input() displayedColumns: string[] = [];
-  @Input() showCommands = false;
+  @Input() showCommands: { edit: boolean; delete: boolean; download: boolean } = {
+    edit: false,
+    delete: false,
+    download: false
+  };
 
-  @Output() editClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() editClick = new EventEmitter<any>();
+  @Output() deleteClick = new EventEmitter<any>();
+  @Output() itemClick = new EventEmitter<any>();
+
 
   constructor() {
   }
@@ -49,6 +57,20 @@ export class TableComponent implements OnInit {
 
   onEditClick(id) {
     this.editClick.emit(this._elements[id]);
+  }
+
+  onDeleteClick(id) {
+    this.deleteClick.emit(this._elements[id]);
+  }
+
+  onDownloadClick(id) {
+    this.itemClick.emit(this._elements[id]);
+  }
+
+
+  resolve(obj = self, path, separator = '.') {
+    const properties = Array.isArray(path) ? path : path.split(separator);
+    return properties.reduce((prev, curr) => prev && prev[curr], obj);
   }
 
 }

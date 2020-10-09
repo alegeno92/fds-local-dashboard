@@ -8,9 +8,15 @@
   <tbody>
   <tr *ngFor="let value of data; index as i">
     <td *ngFor="let el of value" [innerHTML]="format(el)|safeHtml"></td>
-    <td *ngIf="showCommands">
-      <button type="button" class="btn btn-sm" (click)="onEditClick(i)">
-        <span class="oi oi-pencil"></span>
+    <td>
+      <button *ngIf="showCommands.download" type="button" class="btn btn-sm" (click)="onDownloadClick(i)">
+        <span class="oi oi-cloud-download text-primary"></span>
+      </button>
+      <button *ngIf="showCommands.edit" type="button" class="btn btn-sm" (click)="onEditClick(i)">
+        <span class="oi oi-pencil text-secondary"></span>
+      </button>
+      <button *ngIf="showCommands.delete" type="button" class="btn btn-sm" (click)="onDeleteClick(i)">
+        <span class="oi oi-trash text-danger"></span>
       </button>
     </td>
   </tr>

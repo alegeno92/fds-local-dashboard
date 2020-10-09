@@ -25,5 +25,10 @@ export const routes: RouteItem[] = [
     path: 'configurations',
     title: 'Configurations',
     showOnMenu: true
+  },
+  {
+    path: 'exports',
+    title: 'Exports',
+    showOnMenu: true
   }
 ];

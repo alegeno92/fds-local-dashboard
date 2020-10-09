@@ -10,25 +10,48 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fds/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@fds/data": ["libs/data/src/index.ts"],
-      "@fds/data-access/sensor": ["libs/data-access/sensor/src/index.ts"],
-      "@fds/core": ["libs/core/src/index.ts"],
-      "@fds/data-access/actuator": ["libs/data-access/actuator/src/index.ts"],
+      "@fds/api-interfaces": [
+        "libs/api-interfaces/src/index.ts"
+      ],
+      "@fds/data": [
+        "libs/data/src/index.ts"
+      ],
+      "@fds/data-access/sensor": [
+        "libs/data-access/sensor/src/index.ts"
+      ],
       "@fds/data-access/sensor-value": [
         "libs/data-access/sensor-value/src/index.ts"
       ],
-      "@fds/form": ["libs/form/src/index.ts"],
+      "@fds/core": [
+        "libs/core/src/index.ts"
+      ],
+      "@fds/data-access/actuator": [
+        "libs/data-access/actuator/src/index.ts"
+      ],
+      "@fds/form": [
+        "libs/form/src/index.ts"
+      ],
       "@fds/data-access/configuration": [
         "libs/data-access/configuration/src/index.ts"
+      ],
+      "@fds/data-access/export": [
+        "libs/data-access/export/src/index.ts"
       ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

@@ -11,7 +11,7 @@
   <fds-table
     [displayedColumns]="displayedColumns"
     [data]="actuators$|async"
-    [showCommands]="true"
+    [showCommands]="{edit: true, delete: false, download: false}"
     (editClick)="onEditClick($event)"
   >
   </fds-table>

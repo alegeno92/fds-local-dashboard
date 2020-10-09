@@ -319,6 +319,38 @@
           "style": "scss"
         }
       }
+    },
+    "data-access-export": {
+      "projectType": "library",
+      "root": "libs/data-access/export",
+      "sourceRoot": "libs/data-access/export/src",
+      "prefix": "fds",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data-access/export/tsconfig.lib.json",
+              "libs/data-access/export/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/data-access/export/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data-access/export/jest.config.js",
+            "tsConfig": "libs/data-access/export/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/data-access/export/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

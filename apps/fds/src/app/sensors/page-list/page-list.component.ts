@@ -1,9 +1,11 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Sensor, SensorCollectionService } from '@fds/data-access/sensor';
+import { Sensor, SensorActionService, SensorCollectionService } from '@fds/data-access/sensor';
 import { Store } from '@ngrx/store';
 import { EntityActionFactory } from '@ngrx/data';
 import { untilViewDestroyed } from '../../ui/until-view-destroyed';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalExportComponent } from '../modal-export/modal-export.component';
 
 @Component({
   selector: 'fds-page-list',
@@ -20,7 +22,9 @@ export class PageListComponent implements OnInit {
               private eaf: EntityActionFactory,
               private elRef: ElementRef,
               private entityActionFactory: EntityActionFactory,
-              private sensorCollectionService: SensorCollectionService) {
+              private sensorCollectionService: SensorCollectionService,
+              private sensorActionService: SensorActionService,
+              private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -30,4 +34,8 @@ export class PageListComponent implements OnInit {
       .pipe(untilViewDestroyed(this.elRef));
   }
 
+  open() {
+    const modalRef = this.modalService.open(ModalExportComponent);
+    modalRef.result.then(value => this.sensorActionService.export(value).subscribe(), reason => console.log(reason));
+  }
 }

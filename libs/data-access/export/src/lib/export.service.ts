@@ -41,6 +41,7 @@ export class ExportService {
       responseType: 'arraybuffer'
     }
     ).subscribe(response => ExportService.downloadFile(name, response, "application/csv"));
+
   }
 
 
